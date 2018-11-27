@@ -57,15 +57,15 @@
 #pragma mark -
 #pragma mark Finding Devices
 
-+ (NSArray *) allDevices;
++ (nonnull NSArray<DDHidDevice*> *) allDevices;
 
 + (NSArray *) allDevicesMatchingUsagePage: (unsigned) usagePage
                                   usageId: (unsigned) usageId
                                 withClass: (Class) hidClass
                         skipZeroLocations: (BOOL) emptyLocation;
 
-+ (NSArray *) allDevicesMatchingCFDictionary: (CFDictionaryRef) matchDictionary
-                                   withClass: (Class) hidClass
++ (nonnull NSArray<DDHidDevice*> *) allDevicesMatchingCFDictionary: (nonnull CFDictionaryRef) matchDictionary
+                                   withClass: (nonnull Class) hidClass
                            skipZeroLocations: (BOOL) emptyLocation;
 
 #pragma mark -
@@ -100,10 +100,10 @@
 
 - (NSDictionary *) properties;
 
-- (NSArray *) elements;
+- (nonnull NSArray<DDHidElement*> *) elements;
 - (DDHidElement *) elementForCookie: (IOHIDElementCookie) cookie;
 
-- (NSString *) productName;
+- (nullable NSString *) productName;
 - (NSString *) manufacturer;
 - (NSString *) serialNumber;
 - (NSString *) transport;

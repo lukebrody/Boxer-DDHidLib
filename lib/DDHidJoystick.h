@@ -68,7 +68,7 @@
     id mDelegate;
 }
 
-+ (NSArray *) allJoysticks;
++ (nonnull NSArray<DDHidJoystick*> *) allJoysticks;
 
 - (id) initLogicalWithDevice: (io_object_t) device 
          logicalDeviceNumber: (int) logicalDeviceNumber 
