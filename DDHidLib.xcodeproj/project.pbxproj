@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 45;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -106,6 +106,8 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		A3806B1D21AE01EB00548D28 /* DDHidWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = A3806B1B21AE01EB00548D28 /* DDHidWatcher.h */; };
+		A3806B1E21AE01EB00548D28 /* DDHidWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A3806B1C21AE01EB00548D28 /* DDHidWatcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -244,6 +246,9 @@
 		55FD67CB0B5DE18600325FEF /* DDHidLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHidLib.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* HIDBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HIDBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A30B040821AD326B00BAACFB /* HIDBrowser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HIDBrowser.entitlements; sourceTree = "<group>"; };
+		A3806B1B21AE01EB00548D28 /* DDHidWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDHidWatcher.h; sourceTree = "<group>"; };
+		A3806B1C21AE01EB00548D28 /* DDHidWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDHidWatcher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +336,7 @@
 		29B97314FDCFA39411CA2CEA /* HIDBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				A30B040821AD326B00BAACFB /* HIDBrowser.entitlements */,
 				559CBAE80B5B31AB00C8FD74 /* device_test */,
 				559CBAA10B5B2F4400C8FD74 /* browser */,
 				55917B4C0B533C53005308AC /* lib */,
@@ -423,6 +429,8 @@
 				55170D350B8EC2CE00C82155 /* DDHidAppleRemote.m */,
 				55FC9FD90BB76D8D0095FC7B /* DDHidKeyboardBarcodeScanner.h */,
 				55FC9FDA0BB76D8D0095FC7B /* DDHidKeyboardBarcodeScanner.m */,
+				A3806B1B21AE01EB00548D28 /* DDHidWatcher.h */,
+				A3806B1C21AE01EB00548D28 /* DDHidWatcher.m */,
 				55FD67CB0B5DE18600325FEF /* DDHidLib.h */,
 			);
 			path = lib;
@@ -492,6 +500,7 @@
 				55193E640B93F31D004C0C98 /* NSDictionary+DDHidExtras.h in Headers */,
 				55193E660B93F31D004C0C98 /* DDHidMouse.h in Headers */,
 				55193E680B93F31D004C0C98 /* DDHidJoystick.h in Headers */,
+				A3806B1D21AE01EB00548D28 /* DDHidWatcher.h in Headers */,
 				55193E6A0B93F31D004C0C98 /* DDHidAppleRemote.h in Headers */,
 				55193E6C0B93F31D004C0C98 /* DDHidLib.h in Headers */,
 				55193F110B93F36F004C0C98 /* NSXReturnThrowError.h in Headers */,
@@ -603,6 +612,17 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				TargetAttributes = {
+					8D1107260486CEB800E47090 = {
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "DDHidLib" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;
@@ -662,6 +682,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3806B1E21AE01EB00548D28 /* DDHidWatcher.m in Sources */,
 				55193E590B93F31D004C0C98 /* DDHidDevice.m in Sources */,
 				55193E5B0B93F31D004C0C98 /* DDHidElement.m in Sources */,
 				55193E5D0B93F31D004C0C98 /* DDHidUsage.m in Sources */,
@@ -807,6 +828,7 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				PRODUCT_NAME = All;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -817,6 +839,7 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				PRODUCT_NAME = All;
+				SDKROOT = macosx;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -824,7 +847,10 @@
 		55193E540B93F2EF004C0C98 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 287V7UTN9V;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -845,6 +871,8 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = DDHidLib;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
 				ZERO_LINK = NO;
 			};
 			name = Debug;
@@ -852,7 +880,10 @@
 		55193E550B93F2EF004C0C98 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = 287V7UTN9V;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
@@ -871,6 +902,8 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = DDHidLib;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -979,7 +1012,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 55D592200BAE2E4500364849 /* versions.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = HIDBrowser.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 287V7UTN9V;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -988,6 +1025,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = HIDBrowser;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = NO;
 			};
@@ -997,12 +1035,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 55D592200BAE2E4500364849 /* versions.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = HIDBrowser.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 287V7UTN9V;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = browser/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = HIDBrowser;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = NO;
 			};
@@ -1016,7 +1059,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -1032,7 +1075,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};

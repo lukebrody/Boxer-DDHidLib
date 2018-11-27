@@ -34,7 +34,7 @@
 
 
 - (NSString *)stringForObjectValue:(id)anObject {
-	return [HexFormatter format:[anObject longValue]];
+	return [HexFormatter format:[anObject integerValue]];
 }
 
 - (BOOL)getObjectValue:(id *)anObject forString:(NSString *)string errorDescription:(NSString **)error {
