@@ -33,3 +33,4 @@
 #import "DDHidKeyboard.h"
 #import "DDHidAppleRemote.h"
 #import "DDHidKeyboardBarcodeScanner.h"
+#import "DDHidWatcher.h"
