@@ -11,20 +11,22 @@
 @implementation DDHidWatcher
 
 void DeviceWasAdded( void *context, IOReturn result, void *sender, IOHIDDeviceRef device) {
-    DDHidWatcher *watcher = (__bridge DDHidWatcher *)(context);
+    DDHidWatcher *watcher = (DDHidWatcher *)context;
     DDHidDevice *newDevice = [[DDHidDevice alloc]initWithDevice:IOHIDDeviceGetService(device) error: nil];
     
     [watcher->devices addObject:newDevice];
+    [newDevice release];
     [watcher->delegate watcher:watcher addedDevice:newDevice];
 }
 
 void DeviceWasRemoved( void *context, IOReturn result, void *sender, IOHIDDeviceRef device) {
-    DDHidWatcher *watcher = (__bridge DDHidWatcher *)(context);
+    DDHidWatcher *watcher = (DDHidWatcher *)context;
     for (int i = 0; i < [watcher->devices count]; i ++) {
         DDHidDevice *storedDevice = [watcher->devices objectAtIndex: i];
         if ([storedDevice ioDevice] == IOHIDDeviceGetService(device)) {
             [watcher->delegate watcher:watcher removedDevice: storedDevice];
             [watcher->devices removeObjectAtIndex: i];
+            return;
         }
     }
 }
@@ -35,16 +37,24 @@ void DeviceWasRemoved( void *context, IOReturn result, void *sender, IOHIDDevice
     
     if (self) {
         self->delegate = delegate;
-        devices = [NSMutableArray array];
         
+        devices = [[NSMutableArray alloc]init];
         manager = IOHIDManagerCreate(kCFAllocatorDefault, kIOHIDManagerOptionNone);
         IOHIDManagerSetDeviceMatching(manager, IOServiceMatching(kIOHIDDeviceKey));
-        IOHIDManagerRegisterDeviceMatchingCallback(manager, DeviceWasAdded, (__bridge void *)(self));
-        IOHIDManagerRegisterDeviceRemovalCallback(manager, DeviceWasRemoved, (__bridge void *)(self));
+        IOHIDManagerRegisterDeviceMatchingCallback(manager, DeviceWasAdded, self);
+        IOHIDManagerRegisterDeviceRemovalCallback(manager, DeviceWasRemoved, self);
         IOHIDManagerScheduleWithRunLoop(manager, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
     }
     
     return self;
+}
+
+- (void)dealloc
+{
+    IOHIDManagerUnscheduleFromRunLoop(manager, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
+    CFRelease(manager);
+    [devices release];
+    [super dealloc];
 }
 
 @end

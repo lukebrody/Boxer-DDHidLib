@@ -106,8 +106,10 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		A3806B1D21AE01EB00548D28 /* DDHidWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = A3806B1B21AE01EB00548D28 /* DDHidWatcher.h */; };
-		A3806B1E21AE01EB00548D28 /* DDHidWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A3806B1C21AE01EB00548D28 /* DDHidWatcher.m */; };
+		A3188D0E21AE08F70025FAA6 /* DDHidWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A3806B1C21AE01EB00548D28 /* DDHidWatcher.m */; };
+		A3188D0F21AE090C0025FAA6 /* DDHidWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = A3806B1B21AE01EB00548D28 /* DDHidWatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3188D1021AE090C0025FAA6 /* DDHidWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = A3806B1B21AE01EB00548D28 /* DDHidWatcher.h */; };
+		A3188D1121AE09150025FAA6 /* DDHidWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A3806B1C21AE01EB00548D28 /* DDHidWatcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -500,7 +502,7 @@
 				55193E640B93F31D004C0C98 /* NSDictionary+DDHidExtras.h in Headers */,
 				55193E660B93F31D004C0C98 /* DDHidMouse.h in Headers */,
 				55193E680B93F31D004C0C98 /* DDHidJoystick.h in Headers */,
-				A3806B1D21AE01EB00548D28 /* DDHidWatcher.h in Headers */,
+				A3188D0F21AE090C0025FAA6 /* DDHidWatcher.h in Headers */,
 				55193E6A0B93F31D004C0C98 /* DDHidAppleRemote.h in Headers */,
 				55193E6C0B93F31D004C0C98 /* DDHidLib.h in Headers */,
 				55193F110B93F36F004C0C98 /* NSXReturnThrowError.h in Headers */,
@@ -522,6 +524,7 @@
 				559CBBDD0B5B337600C8FD74 /* NSDictionary+DDHidExtras.h in Headers */,
 				559CBC2C0B5B34C300C8FD74 /* DDHidMouse.h in Headers */,
 				55FD66D50B5DDC3F00325FEF /* DDHidJoystick.h in Headers */,
+				A3188D1021AE090C0025FAA6 /* DDHidWatcher.h in Headers */,
 				55FD67CC0B5DE18600325FEF /* DDHidLib.h in Headers */,
 				55BE6DCD0B8033010085514D /* NSXReturnThrowError.h in Headers */,
 				55170D360B8EC2CE00C82155 /* DDHidAppleRemote.h in Headers */,
@@ -682,7 +685,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3806B1E21AE01EB00548D28 /* DDHidWatcher.m in Sources */,
+				A3188D0E21AE08F70025FAA6 /* DDHidWatcher.m in Sources */,
 				55193E590B93F31D004C0C98 /* DDHidDevice.m in Sources */,
 				55193E5B0B93F31D004C0C98 /* DDHidElement.m in Sources */,
 				55193E5D0B93F31D004C0C98 /* DDHidUsage.m in Sources */,
@@ -719,6 +722,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3188D1121AE09150025FAA6 /* DDHidWatcher.m in Sources */,
 				559CBBD20B5B337600C8FD74 /* DDHidDevice.m in Sources */,
 				559CBBD40B5B337600C8FD74 /* DDHidElement.m in Sources */,
 				559CBBD60B5B337600C8FD74 /* DDHidUsage.m in Sources */,
