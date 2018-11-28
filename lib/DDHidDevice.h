@@ -98,14 +98,14 @@
 #pragma mark -
 #pragma mark Properties
 
-- (NSDictionary *) properties;
+- (nonnull NSDictionary *) properties;
 
 - (nonnull NSArray<DDHidElement*> *) elements;
 - (DDHidElement *) elementForCookie: (IOHIDElementCookie) cookie;
 
 - (nullable NSString *) productName;
 - (NSString *) manufacturer;
-- (NSString *) serialNumber;
+- (nullable NSString *) serialNumber;
 - (NSString *) transport;
 - (long) vendorId;
 - (long) productId;
