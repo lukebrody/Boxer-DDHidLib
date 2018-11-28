@@ -26,6 +26,7 @@
 #include <IOKit/hid/IOHIDKeys.h>
 
 @class DDHidUsage;
+@class DDHidElement;
 
 @interface DDHidElement : NSObject
 {
@@ -49,8 +50,8 @@
 - (IOHIDElementCookie) cookie;
 - (unsigned) cookieAsUnsigned;
 
-- (NSArray *) elements;
-- (DDHidUsage *) usage;
+- (nonnull NSArray<DDHidElement*> *) elements;
+- (nonnull DDHidUsage *) usage;
 - (NSString *) name;
 - (BOOL) hasNullState;
 - (BOOL) hasPreferredState;
