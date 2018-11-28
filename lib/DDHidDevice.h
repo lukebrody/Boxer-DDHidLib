@@ -115,6 +115,7 @@
 - (long) usage;
 - (DDHidUsage *) primaryUsage;
 - (NSArray *) usages;
+- (long)uuid;
 
 - (NSComparisonResult) compareByLocationId: (DDHidDevice *) device;
 

@@ -395,6 +395,10 @@
     return mUsages;
 }
 
+- (long)uuid {
+    return [mProperties ddhid_longForString:kIOHIDUniqueIDKey];
+}
+
 - (NSComparisonResult) compareByLocationId: (DDHidDevice *) device;
 {
     long myLocationId = [self locationId];
