@@ -41,7 +41,7 @@
 - (id) initWithHIDQueue: (IOHIDQueueInterface **) queue
                    size: (unsigned) size;
 
-- (void) addElement: (DDHidElement *) element;
+- (void) addElement: (nonnull DDHidElement *) element;
 
 - (void) addElements: (NSArray *) elements;
 
@@ -59,12 +59,12 @@
 
 - (BOOL) getNextEvent: (IOHIDEventStruct *) event;
 
-- (DDHidEvent *) nextEvent;
+- (nullable DDHidEvent *) nextEvent;
 
 @end
 
 @interface NSObject (DDHidQueueDelegate)
 
-- (void) ddhidQueueHasEvents: (DDHidQueue *) hidQueue;
+- (void) ddhidQueueHasEvents: (nonnull DDHidQueue *) hidQueue;
 
 @end

@@ -80,8 +80,8 @@
 - (void) open;
 - (void) openWithOptions: (UInt32) options;
 - (void) close;
-- (DDHidQueue *) createQueueWithSize: (unsigned) size;
-- (long) getElementValue: (DDHidElement *) element;
+- (nullable DDHidQueue *) createQueueWithSize: (unsigned) size;
+- (long) getElementValue: (nonnull DDHidElement *) element;
 
 #pragma mark -
 #pragma mark Asynchronous Notification
