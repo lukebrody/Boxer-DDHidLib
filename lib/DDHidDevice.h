@@ -113,11 +113,11 @@
 - (long) locationId;
 - (long) usagePage;
 - (long) usage;
-- (DDHidUsage *) primaryUsage;
-- (NSArray *) usages;
+- (nonnull DDHidUsage *) primaryUsage;
+- (nonnull NSArray<DDHidUsage*> *) usages;
 - (long)uuid;
 
-- (NSComparisonResult) compareByLocationId: (DDHidDevice *) device;
+- (NSComparisonResult) compareByLocationId: (nonnull DDHidDevice *) device;
 
 - (int) tag;
 - (void) setTag: (int) theTag;
