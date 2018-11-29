@@ -60,7 +60,6 @@ static void queueCallbackFunction(void* target,  IOReturn result, void* refcon,
 {
     [self stop];
     (*mQueue)->dispose(mQueue);
-    (*mQueue)->Release(mQueue);
     [super dealloc];
 }
 
