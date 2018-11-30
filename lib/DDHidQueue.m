@@ -105,8 +105,8 @@ static void queueCallbackFunction(void* target,  IOReturn result, void* refcon,
     
     NSXThrowError((*mQueue)->createAsyncEventSource(mQueue, &mEventSource));
     NSXThrowError((*mQueue)->setEventCallout(mQueue, queueCallbackFunction, self, NULL));
-    CFRunLoopAddSource([mRunLoop getCFRunLoop], mEventSource,
-                       kCFRunLoopDefaultMode);
+    CFRunLoopAddSource([mRunLoop getCFRunLoop], mEventSource, kCFRunLoopDefaultMode);
+    CFRunLoopAddSource([mRunLoop getCFRunLoop], mEventSource, (CFStringRef)NSEventTrackingRunLoopMode);
     (*mQueue)->start(mQueue);
     mStarted = YES;
 }
@@ -117,6 +117,7 @@ static void queueCallbackFunction(void* target,  IOReturn result, void* refcon,
         return;
     
     CFRunLoopRemoveSource([mRunLoop getCFRunLoop], mEventSource, kCFRunLoopDefaultMode);
+    CFRunLoopRemoveSource([mRunLoop getCFRunLoop], mEventSource, (CFStringRef)NSEventTrackingRunLoopMode);
     (*mQueue)->stop(mQueue);
     [mRunLoop release];
     mRunLoop = nil;
