@@ -77,8 +77,10 @@
 #pragma mark -
 #pragma mark Operations
 
-- (void) open;
-- (void) openWithOptions: (UInt32) options;
+NS_ASSUME_NONNULL_BEGIN
+- (BOOL) openWithError: (NSError**) error;
+- (BOOL) openWithOptions: (UInt32) options error: (NSError**) error;
+NS_ASSUME_NONNULL_END
 - (void) close;
 - (nullable DDHidQueue *) createQueueWithSize: (unsigned) size;
 - (long) getElementValue: (nonnull DDHidElement *) element;

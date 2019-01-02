@@ -199,14 +199,17 @@
 #pragma mark -
 #pragma mark Operations
 
-- (void) open;
+- (BOOL) openWithError: (NSError**) error;
 {
-    [self openWithOptions: kIOHIDOptionsTypeNone];
+    return [self openWithOptions: kIOHIDOptionsTypeNone error: error];
 }
 
-- (void) openWithOptions: (UInt32) options;
+- (BOOL) openWithOptions: (UInt32) options error: (NSError**) resultError;
 {
-    NSXThrowError((*mDeviceInterface)->open(mDeviceInterface, options));
+    NSError *error = nil;
+    NSXReturnError((*mDeviceInterface)->open(mDeviceInterface, options));
+    if (resultError) *resultError = error;
+    return error == nil;
 }
 
 - (void) close;
