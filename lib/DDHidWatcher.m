@@ -14,9 +14,11 @@ void DeviceWasAdded( void *context, IOReturn result, void *sender, IOHIDDeviceRe
     DDHidWatcher *watcher = (DDHidWatcher *)context;
     DDHidDevice *newDevice = [[DDHidDevice alloc]initWithDevice:IOHIDDeviceGetService(device) error: nil];
     
-    [watcher->devices addObject:newDevice];
-    [newDevice release];
-    [watcher->delegate watcher:watcher addedDevice:newDevice];
+    if (newDevice != nil) {
+        [watcher->devices addObject:newDevice];
+        [newDevice release];
+        [watcher->delegate watcher:watcher addedDevice:newDevice];
+    }
 }
 
 void DeviceWasRemoved( void *context, IOReturn result, void *sender, IOHIDDeviceRef device) {
